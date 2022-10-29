@@ -3,6 +3,7 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import { NavBar } from './components/NavBar.js'
 import { Banner } from './components/Banner.js'
+import { Skills } from './components/Skills'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Banner />
+      <Skills />
     </div>
   );
 }
