@@ -2,15 +2,15 @@ import { useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import contactImg from '../assets/img/contact-img.svg'
 
-export const Contact = () =>{
-    const formInitialDetails ={
+export const Contact = () => {
+    const formInitialDetails = {
         firstName: '',
         lastName: '',
         email: '',
         phone: '',
         message: ''
     }
-    
+
 
     const [formDetails, setFormDetails] = useState(formInitialDetails)
     const [buttonText, setButtonText] = useState('Send')
@@ -23,13 +23,13 @@ export const Contact = () =>{
         })
     }
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setButtonText('Sending...')
-        let response = await fetch('http://localhost:3000/contact',{
+        let response = await fetch('http://localhost:3000/contact', {
             method: "POST",
-            headers:{
-                "Content-type":"Application/json;charset=utf-8",
+            headers: {
+                "Content-type": "Application/json;charset=utf-8",
             },
             body: JSON.stringify()
         })
@@ -37,10 +37,10 @@ export const Contact = () =>{
         let result = response.json()
         setFormDetails(formInitialDetails);
 
-        if(result.code === 200){
-            setStatus({success:true, message: 'Message sent successfully'})
-        } else{
-            setStatus({success:false, message: 'Something went wrong, try again later.'})
+        if (result.code === 200) {
+            setStatus({ success: true, message: 'Message sent successfully' })
+        } else {
+            setStatus({ success: false, message: 'Something went wrong, try again later.' })
         }
     }
 
@@ -49,7 +49,7 @@ export const Contact = () =>{
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
-                        <img src={contactImg} alt="Contact us"/>
+                        <img src={contactImg} alt="Contact us" />
                     </Col>
                     <Col md={6}>
                         <h2>Get In Touch</h2>
